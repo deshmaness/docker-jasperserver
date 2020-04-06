@@ -1,8 +1,15 @@
 FROM tomcat:9.0-jre8
 MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com 
 
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV JASPERSERVER_VERSION 7.5.0
 
+RUN apt-get update && \
+    apt-get install -y unzip tar wget ca-certificates openjdk-8-jdk && \
+    apt-get install -y mysql-client && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+    
 # Execute all in one layer so that it keeps the image as small as possible
 RUn wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20edition%207.5.0/TIB_js-jrs-cp_7.5.0_bin.zip/download" \
 #RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip/download" \
