@@ -4,8 +4,8 @@ MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com
 ENV JASPERSERVER_VERSION 7.5.0
 
 # Execute all in one layer so that it keeps the image as small as possible
-          #https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20edition%207.5.0/TIB_js-jrs-cp_7.5.0_bin.zip/download
-RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip/download" \
+RUn wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20edition%207.5.0/TIB_js-jrs-cp_7.5.0_bin.zip/download" \
+#RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip/download" \
          -O /tmp/jasperserver.zip  && \
     unzip /tmp/jasperserver.zip -d /usr/src/ && \
     rm /tmp/jasperserver.zip && \
