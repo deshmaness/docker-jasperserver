@@ -21,6 +21,7 @@ if [ -f "/.do_deploy_jasperserver" ]; then
     # rename the application war so that it can be served as the default tomcat web application
     sed -i -e "s|^# webAppNameCE.*$|webAppNameCE = ROOT|g" default_master.properties
 
+    ./js-install-ce.sh minimal
     # run the minimum bootstrap script to initial the JasperServer
     ./js-ant create-js-db || true #create database and skip it if database already exists
     ./js-ant init-js-db-ce 
